@@ -1,76 +1,65 @@
-<a href="https://www.breatheco.de"><img height="280" align="right" src="https://github.com/4GeeksAcademy/flask-rest-hello/blob/main/docs/assets/badge.png?raw=true"></a>
+# 🌌 Star Wars Data Bank
 
-# Flask Boilerplate for Junior Developers
+> **A comprehensive Galactic Encyclopedia built with React and Python. Browse the galaxy, discover characters, and manage your favorite assets.**
 
-Create flask API's in minutes, [📹 watch the video tutorial](https://youtu.be/ORxQ-K3BzQA).
+![Project Status](https://img.shields.io/badge/Status-Completed-success)
+![License](https://img.shields.io/badge/License-MIT-yellow)
+![Tech](https://img.shields.io/badge/Stack-PERN-blueviolet)
 
-- [Extensive documentation here](https://start.4geeksacademy.com).
-- Integrated with Pipenv for package managing.
-- Fast deloyment to render.com or heroku with `$ pipenv run deploy`.
-- Use of `.env` file.
-- SQLAlchemy integration for database abstraction.
+## 📖 About the Project
 
-## 1) Installation
+**Star Wars Data Bank** is a Full Stack web application that interacts with a complex relational database to display detailed information about the Star Wars universe.
 
-This template installs itself in a few seconds if you open it for free with Codespaces (recommended) or Gitpod.
-Skip this installation steps and jump to step 2 if you decide to use any of those services.
+Unlike a simple static page, this project focuses on **Data Modeling**. I designed a robust REST API capable of handling relationships between **Planets, Characters, and Vehicles**, while allowing users to interact with this data by saving items to their personal "Favorites" list via a Global State.
 
-> Important: The boiplerplate is made for python 3.10 but you can change the `python_version` on the Pipfile.
+### 💡 Why I built this?
+This project was a deep dive into **SQLAlchemy** and **Relational Databases**. The main challenge was to architect a backend that serves connected data efficiently and a frontend that manages that data dynamically without refreshing the page.
 
-The following steps are automatically runned withing gitpod, if you are doing a local installation you have to do them manually:
+---
 
-```sh
-pipenv install;
-psql -U root -c 'CREATE DATABASE example;'
-pipenv run init;
-pipenv run migrate;
-pipenv run upgrade;
-```
+## ✨ Key Features
 
-> Note: Codespaces users can connect to psql by typing: `psql -h localhost -U gitpod example`
+* **🗂️ Complex Data Models:** Explore interconnected data. See which characters belong to which planets and what vehicles they drive.
+* **❤️ Favorites System:** A dynamic "Like" feature allowing users to add People, Planets, or Vehicles to their personal dashboard using **React Context API**.
+* **🔎 Detailed Views:** dedicated views for every entity in the database with specific attributes (Climate, Population, Model, Class, etc.).
+* **🚀 RESTful API:** A custom-built API handling GET, POST, and DELETE requests for data persistence.
 
-## 2) How to Start coding
+---
 
-There is an example API working with an example database. All your application code should be written inside the `./src/` folder.
+## 🛠️ Tech Stack
 
-- src/main.py (it's where your endpoints should be coded)
-- src/models.py (your database tables and serialization logic)
-- src/utils.py (some reusable classes and functions)
-- src/admin.py (add your models to the admin and manage your data easily)
+### Frontend
+* ![React](https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB) **React.js**: Functional components & Hooks.
+* **Context API**: For global state management (Flux architecture).
+* ![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?style=flat&logo=bootstrap&logoColor=white) **Bootstrap**: For responsive grid layout and cards.
 
-For a more detailed explanation, look for the tutorial inside the `docs` folder.
+### Backend
+* ![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white) **Python 3**: Server-side logic.
+* ![Flask](https://img.shields.io/badge/Flask-000000?style=flat&logo=flask&logoColor=white) **Flask**: Lightweight framework for the API.
+* ![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-black?style=flat&logo=python&logoColor=white) **SQLAlchemy**: ORM for handling relationships (One-to-Many, Many-to-Many).
+* **PostgreSQL**: Database for production.
+---
 
-## Remember to migrate every time you change your models
+## 💻 Installation & Local Setup
 
-You have to migrate and upgrade the migrations for every update you make to your models:
-
+**1. Clone the repository**
 ```bash
-$ pipenv run migrate # (to make the migrations)
-$ pipenv run upgrade  # (to update your databse with the migrations)
-```
 
-## Generate a database diagram
+2. Backend Setup Navigate to the backend folder to set up the Python environment and database.
 
-If you want to visualize the structure of your database in the form of a diagram, you can generate it with the following command:
+cd src
+pipenv install
+pipenv shell
 
-```bash
-$ pipenv run diagram
-```
+# Run migrations to create the tables in your database
+pipenv run migrate
+pipenv run upgrade
 
-This command will generate a file with the database diagram based on the models defined in `src/models.py`.
+# Start the server
+pipenv run start
 
-## Check your API live
+3. Frontend Setup Open a new terminal, navigate to the frontend folder.
 
-1. Once you run the `pipenv run start` command your API will start running live and you can open it by clicking in the "ports" tab and then clicking "open browser".
-
-> ✋ If you are working on a coding cloud like [Codespaces](https://docs.github.com/en/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace#sharing-a-port) or [Gitpod](https://www.gitpod.io/docs/configure/workspaces/ports#configure-port-visibility) make sure that your forwared port is public.
-
-## Publish/Deploy your website!
-
-This boilerplate it's 100% read to deploy with Render.com and Herkou in a matter of minutes. Please read the [official documentation about it](https://start.4geeksacademy.com/deploy).
-
-### Contributors
-
-This template was built as part of the 4Geeks Academy [Coding Bootcamp](https://4geeksacademy.com/us/coding-bootcamp) by [Alejandro Sanchez](https://twitter.com/alesanchezr) and many other contributors. Find out more about our [Full Stack Developer Course](https://4geeksacademy.com/us/coding-bootcamps/part-time-full-stack-developer), and [Data Science Bootcamp](https://4geeksacademy.com/us/coding-bootcamps/datascience-machine-learning).
-
-You can find other templates and resources like this at the [school github page](https://github.com/4geeksacademy/).
+cd src/front
+npm install
+npm run start
